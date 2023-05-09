@@ -1,2 +1,8 @@
+# Dependencies
 node_modules
-db/app.db
+
+# Database
+db/*.db
+
+# Build
+build

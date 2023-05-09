@@ -35,3 +35,10 @@ testes
 npm i vitest -D
 npm i supertest -D
 npm i -D @types/supertest
+
+deploy
+npm i tsup -D
+"scripts": {
+"build": "tsup src --out-dir build"
+}
+npm run build
