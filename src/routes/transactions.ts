@@ -5,6 +5,10 @@ import { randomUUID } from "node:crypto";
 import { checkSessionIdExists } from "../middlewares/check-session-id-exists";
 
 export async function transactionsRoutes(app: FastifyInstance) {
+    app.addHook('preHandler', async (request, reply) => {
+        console.log(`[${request.method}] ${request.url}`)
+    })
+
     app.get('/', { preHandler: [ checkSessionIdExists ] },async (request, reply) => {
 
         const { sessionId } = request.cookies
@@ -49,7 +53,7 @@ export async function transactionsRoutes(app: FastifyInstance) {
         })
 
         const { title, amount, type } = createTransactionBodySchema.parse(request.body)
-        
+        console.log(title, amount, type)
         let sessionId = request.cookies.sessionId
 
         if (!sessionId) {
