@@ -42,3 +42,4 @@ npm i tsup -D
 "build": "tsup src --out-dir build"
 }
 npm run build
+npm i pg
